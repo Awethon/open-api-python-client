@@ -24,17 +24,17 @@ class OpenApi(object):
         self.operations = OperationsApi(api_client=api_client)
 
 
-def sandbox_api_client(sso_token):
+def sandbox_api_client(token):
     sandbox_host = 'https://api-invest.tinkoff.ru/openapi/sandbox/'
     conf = Configuration(host=sandbox_host)
 
-    conf.access_token = sso_token
+    conf.access_token = token
     return SandboxOpenApi(ApiClient(configuration=conf))
 
 
-def api_client(sso_token):
+def api_client(token):
     host = 'https://api-invest.tinkoff.ru/openapi/'
     conf = Configuration(host=host)
-    conf.access_token = sso_token
+    conf.access_token = token
     return OpenApi(ApiClient(configuration=conf))
 

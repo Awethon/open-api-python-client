@@ -54,7 +54,7 @@ def subscribe_to(ws, candle_subs=(), orderbook_subs=(), instrument_info_subs=())
         ws.send(sub)
 
 
-def run_stream_consumer(sso_token,
+def run_stream_consumer(token,
                         candle_subs=(),
                         orderbook_subs=(),
                         instrument_info_subs=(),
@@ -75,7 +75,7 @@ def run_stream_consumer(sso_token,
 
     ws = websocket.WebSocketApp(
         url=url,
-        header=[f"Authorization: Bearer {sso_token}"],
+        header=[f"Authorization: Bearer {token}"],
         on_open=lambda ws: subscribe_to(ws, candle_subs, orderbook_subs, instrument_info_subs),
         on_message=lambda ws, msg: callback_decider(msg, on_candle_event, on_orderbook_event, on_instrument_info_event),
         on_error=lambda ws, err: print(err)
