@@ -25,8 +25,8 @@ python setup.py install
 ## Ссылки
 
 Документацию непосредственно по OpenAPI можно найти по [ссылке](https://api-invest.tinkoff.ru/openapi/docs/).
+
 [Основной репозиторий с документацией](https://github.com/TinkoffCreditSystems/invest-openapi/) - в нем вы можете задать вопрос в Issues и получать информацию о релизах в Releases.
-https://api-invest.tinkoff.ru/openapi/docs/swagger-ui/index.html
 
 Если возникают вопросы по данному SDK, нашёлся баг или есть предложения по улучшению, то можно задать его в Issues, либо писать на почту:
 
