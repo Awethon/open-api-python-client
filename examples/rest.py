@@ -1,4 +1,4 @@
-from openapi_client_wrapper import openapi
+from openapi_client import openapi
 
 token = 'YOUR TOKEN'
 client = openapi.sandbox_api_client(token)

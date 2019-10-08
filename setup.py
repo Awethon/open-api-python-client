@@ -2,7 +2,7 @@
 
 from setuptools import setup, find_packages
 
-NAME = "openapi-client-wrapper"
+NAME = "tinkoff-invest-openapi-client"
 VERSION = "1.0.0"
 
 REQUIRES = [
@@ -17,10 +17,10 @@ REQUIRES = [
 setup(
     name=NAME,
     version=VERSION,
-    description="OpenAPI Wrapper",
+    description="Tinkoff Invest OpenAPI Сlient",
     author_email="a.polovinkin@tinkoff.ru",
     url="",
-    keywords=["Swagger", "OpenAPI", "Wrapper"],
+    keywords=["Swagger", "OpenAPI", "Tinkoff"],
     install_requires=REQUIRES,
     packages=find_packages(),
     include_package_data=True

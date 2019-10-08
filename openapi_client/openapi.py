@@ -1,10 +1,10 @@
-from openapi_client import MarketApi
-from openapi_client import SandboxApi
-from openapi_client import OrdersApi
-from openapi_client import PortfolioApi
-from openapi_client import OperationsApi
-from openapi_client.api_client import ApiClient
-from openapi_client.configuration import Configuration
+from openapi_genclient import MarketApi
+from openapi_genclient import SandboxApi
+from openapi_genclient import OrdersApi
+from openapi_genclient import PortfolioApi
+from openapi_genclient import OperationsApi
+from openapi_genclient.api_client import ApiClient
+from openapi_genclient.configuration import Configuration
 
 
 class SandboxOpenApi(object):

@@ -1,5 +1,5 @@
-from openapi_client_wrapper.openapi_streaming import run_stream_consumer
-from openapi_client_wrapper.openapi_streaming import print_event
+from openapi_client.openapi_streaming import run_stream_consumer
+from openapi_client.openapi_streaming import print_event
 
 
 token = "YOUR TOKEN"

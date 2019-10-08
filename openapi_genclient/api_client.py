@@ -23,10 +23,10 @@ import tempfile
 import six
 from six.moves.urllib.parse import quote
 
-from openapi_client.configuration import Configuration
-import openapi_client.models
-from openapi_client import rest
-from openapi_client.exceptions import ApiValueError
+from openapi_genclient.configuration import Configuration
+import openapi_genclient.models
+from openapi_genclient import rest
+from openapi_genclient.exceptions import ApiValueError
 
 
 class ApiClient(object):
@@ -278,7 +278,7 @@ class ApiClient(object):
             if klass in self.NATIVE_TYPES_MAPPING:
                 klass = self.NATIVE_TYPES_MAPPING[klass]
             else:
-                klass = getattr(openapi_client.models, klass)
+                klass = getattr(openapi_genclient.models, klass)
 
         if klass in self.PRIMITIVE_TYPES:
             return self.__deserialize_primitive(data, klass)
