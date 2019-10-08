@@ -3,7 +3,7 @@
 from setuptools import setup, find_packages
 
 NAME = "tinkoff-invest-openapi-client"
-VERSION = "1.0.0"
+VERSION = "0.0.3"
 
 REQUIRES = [
     "websocket_client==0.56.0",
@@ -18,7 +18,7 @@ setup(
     name=NAME,
     version=VERSION,
     description="Tinkoff Invest OpenAPI Сlient",
-    author_email="a.polovinkin@tinkoff.ru",
+    author_email="awethon@gmail.com",
     url="",
     keywords=["Swagger", "OpenAPI", "Tinkoff"],
     install_requires=REQUIRES,

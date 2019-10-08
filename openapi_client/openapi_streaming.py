@@ -2,12 +2,13 @@
 
 import websocket
 import json
+from six import print_
 
 
 def do_nothing(event): pass
 
 
-def print_event(event): print(event)
+def print_event(event): print_(event)
 
 
 def to_candle_subscribe_json(figi, interval):
@@ -37,7 +38,7 @@ def callback_decider(event_string,
     elif event_type == 'instrument_info':
         on_instrument_info_event(event_payload)
     else:
-        raise Exception(f"unknown event type - {event_type}")
+        raise Exception("unknown event type - %s" % event_type)
 
 
 def subscribe_to(ws, candle_subs=(), orderbook_subs=(), instrument_info_subs=()):
@@ -50,7 +51,7 @@ def subscribe_to(ws, candle_subs=(), orderbook_subs=(), instrument_info_subs=())
     subscribtions_list.extend(map(lambda x: to_instrument_info_subscribe_json(x['figi']), instrument_info_subs))
 
     for sub in subscribtions_list:
-        print(f"sending: {sub}")
+        print_("sending: %s" % sub)
         ws.send(sub)
 
 
@@ -75,10 +76,10 @@ def run_stream_consumer(token,
 
     ws = websocket.WebSocketApp(
         url=url,
-        header=[f"Authorization: Bearer {token}"],
+        header=["Authorization: Bearer %s" % token],
         on_open=lambda ws: subscribe_to(ws, candle_subs, orderbook_subs, instrument_info_subs),
         on_message=lambda ws, msg: callback_decider(msg, on_candle_event, on_orderbook_event, on_instrument_info_event),
-        on_error=lambda ws, err: print(err)
+        on_error=lambda ws, err: print_(err)
     )
 
     try:
