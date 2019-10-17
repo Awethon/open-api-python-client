@@ -3,7 +3,7 @@
 from setuptools import setup, find_packages
 
 NAME = "tinkoff-invest-openapi-client"
-VERSION = "0.0.3"
+VERSION = "0.0.4"
 
 REQUIRES = [
     "websocket_client==0.56.0",

@@ -37,7 +37,8 @@ class MarketInstrument(object):
         'isin': 'str',
         'min_price_increment': 'float',
         'lot': 'int',
-        'currency': 'Currency'
+        'currency': 'Currency',
+        'name': 'str'
     }
 
     attribute_map = {
@@ -46,10 +47,11 @@ class MarketInstrument(object):
         'isin': 'isin',
         'min_price_increment': 'minPriceIncrement',
         'lot': 'lot',
-        'currency': 'currency'
+        'currency': 'currency',
+        'name': 'name'
     }
 
-    def __init__(self, figi=None, ticker=None, isin=None, min_price_increment=None, lot=None, currency=None):  # noqa: E501
+    def __init__(self, figi=None, ticker=None, isin=None, min_price_increment=None, lot=None, currency=None, name=None):  # noqa: E501
         """MarketInstrument - a model defined in OpenAPI"""  # noqa: E501
 
         self._figi = None
@@ -58,6 +60,7 @@ class MarketInstrument(object):
         self._min_price_increment = None
         self._lot = None
         self._currency = None
+        self._name = None
         self.discriminator = None
 
         self.figi = figi
@@ -69,6 +72,7 @@ class MarketInstrument(object):
         self.lot = lot
         if currency is not None:
             self.currency = currency
+        self.name = name
 
     @property
     def figi(self):
@@ -201,6 +205,29 @@ class MarketInstrument(object):
         """
 
         self._currency = currency
+
+    @property
+    def name(self):
+        """Gets the name of this MarketInstrument.  # noqa: E501
+
+
+        :return: The name of this MarketInstrument.  # noqa: E501
+        :rtype: str
+        """
+        return self._name
+
+    @name.setter
+    def name(self, name):
+        """Sets the name of this MarketInstrument.
+
+
+        :param name: The name of this MarketInstrument.  # noqa: E501
+        :type: str
+        """
+        if name is None:
+            raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
+
+        self._name = name
 
     def to_dict(self):
         """Returns the model properties as a dict"""

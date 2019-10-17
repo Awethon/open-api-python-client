@@ -34,7 +34,7 @@ class PlacedLimitOrder(object):
     openapi_types = {
         'order_id': 'str',
         'operation': 'OperationType',
-        'status': 'str',
+        'status': 'OrderStatus',
         'reject_reason': 'str',
         'requested_lots': 'int',
         'executed_lots': 'int',
@@ -125,7 +125,7 @@ class PlacedLimitOrder(object):
 
 
         :return: The status of this PlacedLimitOrder.  # noqa: E501
-        :rtype: str
+        :rtype: OrderStatus
         """
         return self._status
 
@@ -135,7 +135,7 @@ class PlacedLimitOrder(object):
 
 
         :param status: The status of this PlacedLimitOrder.  # noqa: E501
-        :type: str
+        :type: OrderStatus
         """
         if status is None:
             raise ValueError("Invalid value for `status`, must not be `None`")  # noqa: E501

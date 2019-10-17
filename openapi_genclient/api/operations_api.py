@@ -37,17 +37,17 @@ class OperationsApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def operations_get(self, _from, interval, **kwargs):  # noqa: E501
+    def operations_get(self, _from, to, **kwargs):  # noqa: E501
         """Получение списка операций  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.operations_get(_from, interval, async_req=True)
+        >>> thread = api.operations_get(_from, to, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param date _from: Начало временного промежутка (required)
-        :param OperationInterval interval: Длительность временного промежутка (required)
+        :param datetime _from: Начало временного промежутка (required)
+        :param datetime to: Конец временного промежутка (required)
         :param str figi: Figi инструмента для фильтрации
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -61,19 +61,19 @@ class OperationsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.operations_get_with_http_info(_from, interval, **kwargs)  # noqa: E501
+        return self.operations_get_with_http_info(_from, to, **kwargs)  # noqa: E501
 
-    def operations_get_with_http_info(self, _from, interval, **kwargs):  # noqa: E501
+    def operations_get_with_http_info(self, _from, to, **kwargs):  # noqa: E501
         """Получение списка операций  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.operations_get_with_http_info(_from, interval, async_req=True)
+        >>> thread = api.operations_get_with_http_info(_from, to, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param date _from: Начало временного промежутка (required)
-        :param OperationInterval interval: Длительность временного промежутка (required)
+        :param datetime _from: Начало временного промежутка (required)
+        :param datetime to: Конец временного промежутка (required)
         :param str figi: Figi инструмента для фильтрации
         :param _return_http_data_only: response data without head status code
                                        and headers
@@ -91,7 +91,7 @@ class OperationsApi(object):
 
         local_var_params = locals()
 
-        all_params = ['_from', 'interval', 'figi']  # noqa: E501
+        all_params = ['_from', 'to', 'figi']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -109,10 +109,10 @@ class OperationsApi(object):
         if ('_from' not in local_var_params or
                 local_var_params['_from'] is None):
             raise ApiValueError("Missing the required parameter `_from` when calling `operations_get`")  # noqa: E501
-        # verify the required parameter 'interval' is set
-        if ('interval' not in local_var_params or
-                local_var_params['interval'] is None):
-            raise ApiValueError("Missing the required parameter `interval` when calling `operations_get`")  # noqa: E501
+        # verify the required parameter 'to' is set
+        if ('to' not in local_var_params or
+                local_var_params['to'] is None):
+            raise ApiValueError("Missing the required parameter `to` when calling `operations_get`")  # noqa: E501
 
         collection_formats = {}
 
@@ -121,8 +121,8 @@ class OperationsApi(object):
         query_params = []
         if '_from' in local_var_params:
             query_params.append(('from', local_var_params['_from']))  # noqa: E501
-        if 'interval' in local_var_params:
-            query_params.append(('interval', local_var_params['interval']))  # noqa: E501
+        if 'to' in local_var_params:
+            query_params.append(('to', local_var_params['to']))  # noqa: E501
         if 'figi' in local_var_params:
             query_params.append(('figi', local_var_params['figi']))  # noqa: E501
 

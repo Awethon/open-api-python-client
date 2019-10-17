@@ -38,8 +38,10 @@ class PortfolioPosition(object):
         'instrument_type': 'InstrumentType',
         'balance': 'float',
         'blocked': 'float',
+        'lots': 'int',
         'expected_yield': 'MoneyAmount',
-        'lots': 'int'
+        'average_position_price': 'MoneyAmount',
+        'average_position_price_no_nkd': 'MoneyAmount'
     }
 
     attribute_map = {
@@ -49,11 +51,13 @@ class PortfolioPosition(object):
         'instrument_type': 'instrumentType',
         'balance': 'balance',
         'blocked': 'blocked',
+        'lots': 'lots',
         'expected_yield': 'expectedYield',
-        'lots': 'lots'
+        'average_position_price': 'averagePositionPrice',
+        'average_position_price_no_nkd': 'averagePositionPriceNoNkd'
     }
 
-    def __init__(self, figi=None, ticker=None, isin=None, instrument_type=None, balance=None, blocked=None, expected_yield=None, lots=None):  # noqa: E501
+    def __init__(self, figi=None, ticker=None, isin=None, instrument_type=None, balance=None, blocked=None, lots=None, expected_yield=None, average_position_price=None, average_position_price_no_nkd=None):  # noqa: E501
         """PortfolioPosition - a model defined in OpenAPI"""  # noqa: E501
 
         self._figi = None
@@ -62,8 +66,10 @@ class PortfolioPosition(object):
         self._instrument_type = None
         self._balance = None
         self._blocked = None
-        self._expected_yield = None
         self._lots = None
+        self._expected_yield = None
+        self._average_position_price = None
+        self._average_position_price_no_nkd = None
         self.discriminator = None
 
         self.figi = figi
@@ -75,9 +81,13 @@ class PortfolioPosition(object):
         self.balance = balance
         if blocked is not None:
             self.blocked = blocked
+        self.lots = lots
         if expected_yield is not None:
             self.expected_yield = expected_yield
-        self.lots = lots
+        if average_position_price is not None:
+            self.average_position_price = average_position_price
+        if average_position_price_no_nkd is not None:
+            self.average_position_price_no_nkd = average_position_price_no_nkd
 
     @property
     def figi(self):
@@ -212,27 +222,6 @@ class PortfolioPosition(object):
         self._blocked = blocked
 
     @property
-    def expected_yield(self):
-        """Gets the expected_yield of this PortfolioPosition.  # noqa: E501
-
-
-        :return: The expected_yield of this PortfolioPosition.  # noqa: E501
-        :rtype: MoneyAmount
-        """
-        return self._expected_yield
-
-    @expected_yield.setter
-    def expected_yield(self, expected_yield):
-        """Sets the expected_yield of this PortfolioPosition.
-
-
-        :param expected_yield: The expected_yield of this PortfolioPosition.  # noqa: E501
-        :type: MoneyAmount
-        """
-
-        self._expected_yield = expected_yield
-
-    @property
     def lots(self):
         """Gets the lots of this PortfolioPosition.  # noqa: E501
 
@@ -254,6 +243,69 @@ class PortfolioPosition(object):
             raise ValueError("Invalid value for `lots`, must not be `None`")  # noqa: E501
 
         self._lots = lots
+
+    @property
+    def expected_yield(self):
+        """Gets the expected_yield of this PortfolioPosition.  # noqa: E501
+
+
+        :return: The expected_yield of this PortfolioPosition.  # noqa: E501
+        :rtype: MoneyAmount
+        """
+        return self._expected_yield
+
+    @expected_yield.setter
+    def expected_yield(self, expected_yield):
+        """Sets the expected_yield of this PortfolioPosition.
+
+
+        :param expected_yield: The expected_yield of this PortfolioPosition.  # noqa: E501
+        :type: MoneyAmount
+        """
+
+        self._expected_yield = expected_yield
+
+    @property
+    def average_position_price(self):
+        """Gets the average_position_price of this PortfolioPosition.  # noqa: E501
+
+
+        :return: The average_position_price of this PortfolioPosition.  # noqa: E501
+        :rtype: MoneyAmount
+        """
+        return self._average_position_price
+
+    @average_position_price.setter
+    def average_position_price(self, average_position_price):
+        """Sets the average_position_price of this PortfolioPosition.
+
+
+        :param average_position_price: The average_position_price of this PortfolioPosition.  # noqa: E501
+        :type: MoneyAmount
+        """
+
+        self._average_position_price = average_position_price
+
+    @property
+    def average_position_price_no_nkd(self):
+        """Gets the average_position_price_no_nkd of this PortfolioPosition.  # noqa: E501
+
+
+        :return: The average_position_price_no_nkd of this PortfolioPosition.  # noqa: E501
+        :rtype: MoneyAmount
+        """
+        return self._average_position_price_no_nkd
+
+    @average_position_price_no_nkd.setter
+    def average_position_price_no_nkd(self, average_position_price_no_nkd):
+        """Sets the average_position_price_no_nkd of this PortfolioPosition.
+
+
+        :param average_position_price_no_nkd: The average_position_price_no_nkd of this PortfolioPosition.  # noqa: E501
+        :type: MoneyAmount
+        """
+
+        self._average_position_price_no_nkd = average_position_price_no_nkd
 
     def to_dict(self):
         """Returns the model properties as a dict"""
