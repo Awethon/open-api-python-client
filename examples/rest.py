@@ -36,8 +36,8 @@ def make_order():
     return order_response
 
 # won't work in sandbox - orders are being instantly executed
-def cancel_order():
-    cancellation_result = client.orders.orders_cancel_post(order_id=order_response.payload.order_id)
+def cancel_order(order_id):
+    cancellation_result = client.orders.orders_cancel_post(order_id=order_id)
     print("cancel order")
     print(cancellation_result)
     print()
@@ -47,5 +47,5 @@ print_24hr_operations()
 print_orders()
 order_response = make_order()
 print_orders()
-# cancel_order()
+# cancel_order(order_response.payload.order_id)
 # print_orders()
