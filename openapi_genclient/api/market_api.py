@@ -206,20 +206,20 @@ class MarketApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'figi' is set
-        if ('figi' not in local_var_params or
-                local_var_params['figi'] is None):
+        if self.api_client.client_side_validation and ('figi' not in local_var_params or  # noqa: E501
+                                                        local_var_params['figi'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `figi` when calling `market_candles_get`")  # noqa: E501
         # verify the required parameter '_from' is set
-        if ('_from' not in local_var_params or
-                local_var_params['_from'] is None):
+        if self.api_client.client_side_validation and ('_from' not in local_var_params or  # noqa: E501
+                                                        local_var_params['_from'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `_from` when calling `market_candles_get`")  # noqa: E501
         # verify the required parameter 'to' is set
-        if ('to' not in local_var_params or
-                local_var_params['to'] is None):
+        if self.api_client.client_side_validation and ('to' not in local_var_params or  # noqa: E501
+                                                        local_var_params['to'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `to` when calling `market_candles_get`")  # noqa: E501
         # verify the required parameter 'interval' is set
-        if ('interval' not in local_var_params or
-                local_var_params['interval'] is None):
+        if self.api_client.client_side_validation and ('interval' not in local_var_params or  # noqa: E501
+                                                        local_var_params['interval'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `interval` when calling `market_candles_get`")  # noqa: E501
 
         collection_formats = {}
@@ -227,13 +227,13 @@ class MarketApi(object):
         path_params = {}
 
         query_params = []
-        if 'figi' in local_var_params:
+        if 'figi' in local_var_params and local_var_params['figi'] is not None:  # noqa: E501
             query_params.append(('figi', local_var_params['figi']))  # noqa: E501
-        if '_from' in local_var_params:
+        if '_from' in local_var_params and local_var_params['_from'] is not None:  # noqa: E501
             query_params.append(('from', local_var_params['_from']))  # noqa: E501
-        if 'to' in local_var_params:
+        if 'to' in local_var_params and local_var_params['to'] is not None:  # noqa: E501
             query_params.append(('to', local_var_params['to']))  # noqa: E501
-        if 'interval' in local_var_params:
+        if 'interval' in local_var_params and local_var_params['interval'] is not None:  # noqa: E501
             query_params.append(('interval', local_var_params['interval']))  # noqa: E501
 
         header_params = {}
@@ -528,12 +528,12 @@ class MarketApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'figi' is set
-        if ('figi' not in local_var_params or
-                local_var_params['figi'] is None):
+        if self.api_client.client_side_validation and ('figi' not in local_var_params or  # noqa: E501
+                                                        local_var_params['figi'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `figi` when calling `market_orderbook_get`")  # noqa: E501
         # verify the required parameter 'depth' is set
-        if ('depth' not in local_var_params or
-                local_var_params['depth'] is None):
+        if self.api_client.client_side_validation and ('depth' not in local_var_params or  # noqa: E501
+                                                        local_var_params['depth'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `depth` when calling `market_orderbook_get`")  # noqa: E501
 
         collection_formats = {}
@@ -541,9 +541,9 @@ class MarketApi(object):
         path_params = {}
 
         query_params = []
-        if 'figi' in local_var_params:
+        if 'figi' in local_var_params and local_var_params['figi'] is not None:  # noqa: E501
             query_params.append(('figi', local_var_params['figi']))  # noqa: E501
-        if 'depth' in local_var_params:
+        if 'depth' in local_var_params and local_var_params['depth'] is not None:  # noqa: E501
             query_params.append(('depth', local_var_params['depth']))  # noqa: E501
 
         header_params = {}
@@ -592,7 +592,7 @@ class MarketApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: MarketInstrumentResponse
+        :return: SearchMarketInstrumentResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -618,7 +618,7 @@ class MarketApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(MarketInstrumentResponse, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(SearchMarketInstrumentResponse, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -640,8 +640,8 @@ class MarketApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'figi' is set
-        if ('figi' not in local_var_params or
-                local_var_params['figi'] is None):
+        if self.api_client.client_side_validation and ('figi' not in local_var_params or  # noqa: E501
+                                                        local_var_params['figi'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `figi` when calling `market_search_by_figi_get`")  # noqa: E501
 
         collection_formats = {}
@@ -649,7 +649,7 @@ class MarketApi(object):
         path_params = {}
 
         query_params = []
-        if 'figi' in local_var_params:
+        if 'figi' in local_var_params and local_var_params['figi'] is not None:  # noqa: E501
             query_params.append(('figi', local_var_params['figi']))  # noqa: E501
 
         header_params = {}
@@ -673,7 +673,7 @@ class MarketApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='MarketInstrumentResponse',  # noqa: E501
+            response_type='SearchMarketInstrumentResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -698,7 +698,7 @@ class MarketApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: MarketInstrumentListResponse
+        :return: SearchMarketInstrumentResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -724,7 +724,7 @@ class MarketApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(MarketInstrumentListResponse, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(SearchMarketInstrumentResponse, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -746,8 +746,8 @@ class MarketApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'ticker' is set
-        if ('ticker' not in local_var_params or
-                local_var_params['ticker'] is None):
+        if self.api_client.client_side_validation and ('ticker' not in local_var_params or  # noqa: E501
+                                                        local_var_params['ticker'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `ticker` when calling `market_search_by_ticker_get`")  # noqa: E501
 
         collection_formats = {}
@@ -755,7 +755,7 @@ class MarketApi(object):
         path_params = {}
 
         query_params = []
-        if 'ticker' in local_var_params:
+        if 'ticker' in local_var_params and local_var_params['ticker'] is not None:  # noqa: E501
             query_params.append(('ticker', local_var_params['ticker']))  # noqa: E501
 
         header_params = {}
@@ -779,7 +779,7 @@ class MarketApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='MarketInstrumentListResponse',  # noqa: E501
+            response_type='SearchMarketInstrumentResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501

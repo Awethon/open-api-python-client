@@ -15,6 +15,7 @@
 from __future__ import absolute_import
 
 # import models into model package
+from openapi_genclient.models.broker_account_type import BrokerAccountType
 from openapi_genclient.models.candle import Candle
 from openapi_genclient.models.candle_resolution import CandleResolution
 from openapi_genclient.models.candles import Candles
@@ -52,7 +53,15 @@ from openapi_genclient.models.portfolio import Portfolio
 from openapi_genclient.models.portfolio_currencies_response import PortfolioCurrenciesResponse
 from openapi_genclient.models.portfolio_position import PortfolioPosition
 from openapi_genclient.models.portfolio_response import PortfolioResponse
+from openapi_genclient.models.sandbox_account import SandboxAccount
 from openapi_genclient.models.sandbox_currency import SandboxCurrency
+from openapi_genclient.models.sandbox_register_request import SandboxRegisterRequest
+from openapi_genclient.models.sandbox_register_response import SandboxRegisterResponse
 from openapi_genclient.models.sandbox_set_currency_balance_request import SandboxSetCurrencyBalanceRequest
 from openapi_genclient.models.sandbox_set_position_balance_request import SandboxSetPositionBalanceRequest
+from openapi_genclient.models.search_market_instrument import SearchMarketInstrument
+from openapi_genclient.models.search_market_instrument_response import SearchMarketInstrumentResponse
 from openapi_genclient.models.trade_status import TradeStatus
+from openapi_genclient.models.user_account import UserAccount
+from openapi_genclient.models.user_accounts import UserAccounts
+from openapi_genclient.models.user_accounts_response import UserAccountsResponse

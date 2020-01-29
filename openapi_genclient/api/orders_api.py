@@ -47,7 +47,7 @@ class OrdersApi(object):
 
         :param async_req bool: execute request asynchronously
         :param str order_id: ID заявки (required)
-        :param Empty empty:
+        :param str broker_account_id: Номер счета (по умолчанию - Тинькофф)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -72,7 +72,7 @@ class OrdersApi(object):
 
         :param async_req bool: execute request asynchronously
         :param str order_id: ID заявки (required)
-        :param Empty empty:
+        :param str broker_account_id: Номер счета (по умолчанию - Тинькофф)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -89,7 +89,7 @@ class OrdersApi(object):
 
         local_var_params = locals()
 
-        all_params = ['order_id', 'empty']  # noqa: E501
+        all_params = ['order_id', 'broker_account_id']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -104,8 +104,8 @@ class OrdersApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'order_id' is set
-        if ('order_id' not in local_var_params or
-                local_var_params['order_id'] is None):
+        if self.api_client.client_side_validation and ('order_id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['order_id'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `order_id` when calling `orders_cancel_post`")  # noqa: E501
 
         collection_formats = {}
@@ -113,8 +113,10 @@ class OrdersApi(object):
         path_params = {}
 
         query_params = []
-        if 'order_id' in local_var_params:
+        if 'order_id' in local_var_params and local_var_params['order_id'] is not None:  # noqa: E501
             query_params.append(('orderId', local_var_params['order_id']))  # noqa: E501
+        if 'broker_account_id' in local_var_params and local_var_params['broker_account_id'] is not None:  # noqa: E501
+            query_params.append(('brokerAccountId', local_var_params['broker_account_id']))  # noqa: E501
 
         header_params = {}
 
@@ -122,14 +124,8 @@ class OrdersApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'empty' in local_var_params:
-            body_params = local_var_params['empty']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json'])  # noqa: E501
 
         # Authentication setting
@@ -160,6 +156,7 @@ class OrdersApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
+        :param str broker_account_id: Номер счета (по умолчанию - Тинькофф)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -183,6 +180,7 @@ class OrdersApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
+        :param str broker_account_id: Номер счета (по умолчанию - Тинькофф)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -199,7 +197,7 @@ class OrdersApi(object):
 
         local_var_params = locals()
 
-        all_params = []  # noqa: E501
+        all_params = ['broker_account_id']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -219,6 +217,8 @@ class OrdersApi(object):
         path_params = {}
 
         query_params = []
+        if 'broker_account_id' in local_var_params and local_var_params['broker_account_id'] is not None:  # noqa: E501
+            query_params.append(('brokerAccountId', local_var_params['broker_account_id']))  # noqa: E501
 
         header_params = {}
 
@@ -260,6 +260,7 @@ class OrdersApi(object):
         :param async_req bool: execute request asynchronously
         :param str figi: FIGI инструмента (required)
         :param LimitOrderRequest limit_order_request: (required)
+        :param str broker_account_id: Номер счета (по умолчанию - Тинькофф)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -285,6 +286,7 @@ class OrdersApi(object):
         :param async_req bool: execute request asynchronously
         :param str figi: FIGI инструмента (required)
         :param LimitOrderRequest limit_order_request: (required)
+        :param str broker_account_id: Номер счета (по умолчанию - Тинькофф)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -301,7 +303,7 @@ class OrdersApi(object):
 
         local_var_params = locals()
 
-        all_params = ['figi', 'limit_order_request']  # noqa: E501
+        all_params = ['figi', 'limit_order_request', 'broker_account_id']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -316,12 +318,12 @@ class OrdersApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'figi' is set
-        if ('figi' not in local_var_params or
-                local_var_params['figi'] is None):
+        if self.api_client.client_side_validation and ('figi' not in local_var_params or  # noqa: E501
+                                                        local_var_params['figi'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `figi` when calling `orders_limit_order_post`")  # noqa: E501
         # verify the required parameter 'limit_order_request' is set
-        if ('limit_order_request' not in local_var_params or
-                local_var_params['limit_order_request'] is None):
+        if self.api_client.client_side_validation and ('limit_order_request' not in local_var_params or  # noqa: E501
+                                                        local_var_params['limit_order_request'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `limit_order_request` when calling `orders_limit_order_post`")  # noqa: E501
 
         collection_formats = {}
@@ -329,8 +331,10 @@ class OrdersApi(object):
         path_params = {}
 
         query_params = []
-        if 'figi' in local_var_params:
+        if 'figi' in local_var_params and local_var_params['figi'] is not None:  # noqa: E501
             query_params.append(('figi', local_var_params['figi']))  # noqa: E501
+        if 'broker_account_id' in local_var_params and local_var_params['broker_account_id'] is not None:  # noqa: E501
+            query_params.append(('brokerAccountId', local_var_params['broker_account_id']))  # noqa: E501
 
         header_params = {}
 

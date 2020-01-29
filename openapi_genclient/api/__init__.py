@@ -8,3 +8,4 @@ from openapi_genclient.api.operations_api import OperationsApi
 from openapi_genclient.api.orders_api import OrdersApi
 from openapi_genclient.api.portfolio_api import PortfolioApi
 from openapi_genclient.api.sandbox_api import SandboxApi
+from openapi_genclient.api.user_api import UserApi

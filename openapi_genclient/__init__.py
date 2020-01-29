@@ -23,6 +23,7 @@ from openapi_genclient.api.operations_api import OperationsApi
 from openapi_genclient.api.orders_api import OrdersApi
 from openapi_genclient.api.portfolio_api import PortfolioApi
 from openapi_genclient.api.sandbox_api import SandboxApi
+from openapi_genclient.api.user_api import UserApi
 
 # import ApiClient
 from openapi_genclient.api_client import ApiClient
@@ -33,6 +34,7 @@ from openapi_genclient.exceptions import ApiValueError
 from openapi_genclient.exceptions import ApiKeyError
 from openapi_genclient.exceptions import ApiException
 # import models into sdk package
+from openapi_genclient.models.broker_account_type import BrokerAccountType
 from openapi_genclient.models.candle import Candle
 from openapi_genclient.models.candle_resolution import CandleResolution
 from openapi_genclient.models.candles import Candles
@@ -70,8 +72,16 @@ from openapi_genclient.models.portfolio import Portfolio
 from openapi_genclient.models.portfolio_currencies_response import PortfolioCurrenciesResponse
 from openapi_genclient.models.portfolio_position import PortfolioPosition
 from openapi_genclient.models.portfolio_response import PortfolioResponse
+from openapi_genclient.models.sandbox_account import SandboxAccount
 from openapi_genclient.models.sandbox_currency import SandboxCurrency
+from openapi_genclient.models.sandbox_register_request import SandboxRegisterRequest
+from openapi_genclient.models.sandbox_register_response import SandboxRegisterResponse
 from openapi_genclient.models.sandbox_set_currency_balance_request import SandboxSetCurrencyBalanceRequest
 from openapi_genclient.models.sandbox_set_position_balance_request import SandboxSetPositionBalanceRequest
+from openapi_genclient.models.search_market_instrument import SearchMarketInstrument
+from openapi_genclient.models.search_market_instrument_response import SearchMarketInstrumentResponse
 from openapi_genclient.models.trade_status import TradeStatus
+from openapi_genclient.models.user_account import UserAccount
+from openapi_genclient.models.user_accounts import UserAccounts
+from openapi_genclient.models.user_accounts_response import UserAccountsResponse
 

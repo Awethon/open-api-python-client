@@ -46,6 +46,7 @@ class PortfolioApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
+        :param str broker_account_id: Номер счета (по умолчанию - Тинькофф)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -69,6 +70,7 @@ class PortfolioApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
+        :param str broker_account_id: Номер счета (по умолчанию - Тинькофф)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -85,7 +87,7 @@ class PortfolioApi(object):
 
         local_var_params = locals()
 
-        all_params = []  # noqa: E501
+        all_params = ['broker_account_id']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -105,6 +107,8 @@ class PortfolioApi(object):
         path_params = {}
 
         query_params = []
+        if 'broker_account_id' in local_var_params and local_var_params['broker_account_id'] is not None:  # noqa: E501
+            query_params.append(('brokerAccountId', local_var_params['broker_account_id']))  # noqa: E501
 
         header_params = {}
 
@@ -144,6 +148,7 @@ class PortfolioApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
+        :param str broker_account_id: Номер счета (по умолчанию - Тинькофф)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -167,6 +172,7 @@ class PortfolioApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
+        :param str broker_account_id: Номер счета (по умолчанию - Тинькофф)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -183,7 +189,7 @@ class PortfolioApi(object):
 
         local_var_params = locals()
 
-        all_params = []  # noqa: E501
+        all_params = ['broker_account_id']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -203,6 +209,8 @@ class PortfolioApi(object):
         path_params = {}
 
         query_params = []
+        if 'broker_account_id' in local_var_params and local_var_params['broker_account_id'] is not None:  # noqa: E501
+            query_params.append(('brokerAccountId', local_var_params['broker_account_id']))  # noqa: E501
 
         header_params = {}
 

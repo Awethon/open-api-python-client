@@ -9,6 +9,13 @@ client.sandbox.sandbox_register_post()
 client.sandbox.sandbox_currencies_balance_post(sandbox_set_currency_balance_request={"currency": "USD", "balance": 1000})
 
 
+def set_balance():
+    balance_set = client.sandbox.sandbox_currencies_balance_post({"currency": "USD", "balance": 10000})
+    print("balance")
+    print(balance_set)
+    print()
+
+
 def print_24hr_operations():
     now = datetime.now(tz=timezone('Europe/Moscow'))
     yesterday = now - timedelta(days=1)
@@ -35,6 +42,7 @@ def make_order():
     print()
     return order_response
 
+
 # won't work in sandbox - orders are being instantly executed
 def cancel_order(order_id):
     cancellation_result = client.orders.orders_cancel_post(order_id=order_id)
@@ -43,6 +51,7 @@ def cancel_order(order_id):
     print()
 
 
+set_balance()
 print_24hr_operations()
 print_orders()
 order_response = make_order()
