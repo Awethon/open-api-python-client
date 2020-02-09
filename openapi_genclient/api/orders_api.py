@@ -370,3 +370,125 @@ class OrdersApi(object):
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
+
+    def orders_market_order_post(self, figi, market_order_request, **kwargs):  # noqa: E501
+        """Создание рыночной заявки  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.orders_market_order_post(figi, market_order_request, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param str figi: FIGI инструмента (required)
+        :param MarketOrderRequest market_order_request: (required)
+        :param str broker_account_id: Уникальный идентификатор счета (по умолчанию - Тинькофф)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: MarketOrderResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.orders_market_order_post_with_http_info(figi, market_order_request, **kwargs)  # noqa: E501
+
+    def orders_market_order_post_with_http_info(self, figi, market_order_request, **kwargs):  # noqa: E501
+        """Создание рыночной заявки  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.orders_market_order_post_with_http_info(figi, market_order_request, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param str figi: FIGI инструмента (required)
+        :param MarketOrderRequest market_order_request: (required)
+        :param str broker_account_id: Уникальный идентификатор счета (по умолчанию - Тинькофф)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(MarketOrderResponse, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['figi', 'market_order_request', 'broker_account_id']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method orders_market_order_post" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'figi' is set
+        if self.api_client.client_side_validation and ('figi' not in local_var_params or  # noqa: E501
+                                                        local_var_params['figi'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `figi` when calling `orders_market_order_post`")  # noqa: E501
+        # verify the required parameter 'market_order_request' is set
+        if self.api_client.client_side_validation and ('market_order_request' not in local_var_params or  # noqa: E501
+                                                        local_var_params['market_order_request'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `market_order_request` when calling `orders_market_order_post`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+        if 'figi' in local_var_params and local_var_params['figi'] is not None:  # noqa: E501
+            query_params.append(('figi', local_var_params['figi']))  # noqa: E501
+        if 'broker_account_id' in local_var_params and local_var_params['broker_account_id'] is not None:  # noqa: E501
+            query_params.append(('brokerAccountId', local_var_params['broker_account_id']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'market_order_request' in local_var_params:
+            body_params = local_var_params['market_order_request']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['sso_auth']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/orders/market-order', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='MarketOrderResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)

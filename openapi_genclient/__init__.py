@@ -52,6 +52,8 @@ from openapi_genclient.models.market_instrument import MarketInstrument
 from openapi_genclient.models.market_instrument_list import MarketInstrumentList
 from openapi_genclient.models.market_instrument_list_response import MarketInstrumentListResponse
 from openapi_genclient.models.market_instrument_response import MarketInstrumentResponse
+from openapi_genclient.models.market_order_request import MarketOrderRequest
+from openapi_genclient.models.market_order_response import MarketOrderResponse
 from openapi_genclient.models.money_amount import MoneyAmount
 from openapi_genclient.models.operation import Operation
 from openapi_genclient.models.operation_status import OperationStatus
@@ -68,6 +70,7 @@ from openapi_genclient.models.orderbook import Orderbook
 from openapi_genclient.models.orderbook_response import OrderbookResponse
 from openapi_genclient.models.orders_response import OrdersResponse
 from openapi_genclient.models.placed_limit_order import PlacedLimitOrder
+from openapi_genclient.models.placed_market_order import PlacedMarketOrder
 from openapi_genclient.models.portfolio import Portfolio
 from openapi_genclient.models.portfolio_currencies_response import PortfolioCurrenciesResponse
 from openapi_genclient.models.portfolio_position import PortfolioPosition
