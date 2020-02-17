@@ -40,7 +40,8 @@ class MarketInstrument(object):
         'min_price_increment': 'float',
         'lot': 'int',
         'currency': 'Currency',
-        'name': 'str'
+        'name': 'str',
+        'type': 'InstrumentType'
     }
 
     attribute_map = {
@@ -50,10 +51,11 @@ class MarketInstrument(object):
         'min_price_increment': 'minPriceIncrement',
         'lot': 'lot',
         'currency': 'currency',
-        'name': 'name'
+        'name': 'name',
+        'type': 'type'
     }
 
-    def __init__(self, figi=None, ticker=None, isin=None, min_price_increment=None, lot=None, currency=None, name=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, figi=None, ticker=None, isin=None, min_price_increment=None, lot=None, currency=None, name=None, type=None, local_vars_configuration=None):  # noqa: E501
         """MarketInstrument - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -66,6 +68,7 @@ class MarketInstrument(object):
         self._lot = None
         self._currency = None
         self._name = None
+        self._type = None
         self.discriminator = None
 
         self.figi = figi
@@ -78,6 +81,7 @@ class MarketInstrument(object):
         if currency is not None:
             self.currency = currency
         self.name = name
+        self.type = type
 
     @property
     def figi(self):
@@ -235,6 +239,29 @@ class MarketInstrument(object):
             raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
 
         self._name = name
+
+    @property
+    def type(self):
+        """Gets the type of this MarketInstrument.  # noqa: E501
+
+
+        :return: The type of this MarketInstrument.  # noqa: E501
+        :rtype: InstrumentType
+        """
+        return self._type
+
+    @type.setter
+    def type(self, type):
+        """Sets the type of this MarketInstrument.
+
+
+        :param type: The type of this MarketInstrument.  # noqa: E501
+        :type: InstrumentType
+        """
+        if self.local_vars_configuration.client_side_validation and type is None:  # noqa: E501
+            raise ValueError("Invalid value for `type`, must not be `None`")  # noqa: E501
+
+        self._type = type
 
     def to_dict(self):
         """Returns the model properties as a dict"""
