@@ -35,3 +35,5 @@ python setup.py install
 
 Если возникают вопросы по данному SDK, нашёлся баг или есть предложения по улучшению, то можно задать его в Issues, либо в [telegram](https://t.me/awethon)
 
+Вопросы по самому Open API Инвестиций можно задать на почту - openapi_invest@tinkoff.ru
+
