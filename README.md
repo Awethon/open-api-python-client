@@ -34,3 +34,10 @@ python setup.py install
 [Основной репозиторий с документацией](https://github.com/TinkoffCreditSystems/invest-openapi/) - в нем вы можете задать вопрос в Issues и получать информацию о релизах в Releases.
 
 Если возникают вопросы по данному SDK, нашёлся баг или есть предложения по улучшению, то можно задать его в Issues, либо в [telegram](https://t.me/awethon)
+
+## Проблемы
+
+#### SSL: CERTIFICATE_VERIFY_FAILED
+Для MacOS решается выполнением команды
+`open "/Applications/Python 3.7/Install Certificates.command"`
+в терминале
