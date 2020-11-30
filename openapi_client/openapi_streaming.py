@@ -5,10 +5,10 @@ import json
 from six import print_
 
 
-def do_nothing(event): pass
+def do_nothing(event, time): pass
 
 
-def print_event(event): print_(event)
+def print_event(event, time): print_(event)
 
 
 def to_candle_subscribe_json(figi, interval):
