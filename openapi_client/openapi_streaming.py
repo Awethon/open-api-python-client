@@ -5,10 +5,10 @@ import json
 from six import print_
 
 
-def do_nothing(event): pass
+def do_nothing(event, time): pass
 
 
-def print_event(event): print_(event)
+def print_event(event, time): print_(event)
 
 
 def to_candle_subscribe_json(figi, interval):
@@ -30,13 +30,14 @@ def callback_decider(event_string,
     event_json = json.loads(event_string)
     event_type = event_json['event']
     event_payload = event_json['payload']
+    event_time = event_json['time']
 
     if event_type == 'candle':
-        on_candle_event(event_payload)
+        on_candle_event(event_payload, event_time)
     elif event_type == 'orderbook':
-        on_orderbook_event(event_payload)
+        on_orderbook_event(event_payload, event_time)
     elif event_type == 'instrument_info':
-        on_instrument_info_event(event_payload)
+        on_instrument_info_event(event_payload, event_time)
     else:
         raise Exception("unknown event type - %s" % event_type)
 
