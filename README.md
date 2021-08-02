@@ -41,3 +41,6 @@ python setup.py install
 Для MacOS решается выполнением команды
 `open "/Applications/Python 3.7/Install Certificates.command"`
 в терминале
+
+#### Дата не принимается сервером
+Необходимо вызвать `.isoformat()` на Datetime
